@@ -1,0 +1,73 @@
+# Tasks
+
+This file tracks all work for the ShopSmart sales dashboard (see [prd/ecommerce-analytics.md](prd/ecommerce-analytics.md)).
+
+## Definition of Done
+
+A milestone can only move to Done when:
+
+- Its acceptance criteria (below) are all met
+- The app runs locally with `streamlit run app.py` with no errors or warnings
+- Changes are committed with the milestone ID (e.g. `TASK-1`) in the commit message
+
+## To Do
+
+### TASK-1: Environment setup and project initialization
+Set up the Python project structure, dependencies, and repo layout needed to build the dashboard.
+- [ ] `requirements.txt` (or equivalent) lists Streamlit, Pandas, and Plotly
+- [ ] Project runs in a clean virtual environment with no missing dependencies
+- [ ] Basic `app.py` exists and launches an empty Streamlit page
+
+Commit:
+
+### TASK-2: Data loading and basic structure
+Load `data/sales-data.csv` into a Pandas DataFrame and validate its structure.
+- [ ] CSV loads without errors and handles date, numeric, and categorical columns correctly
+- [ ] Row count matches the PRD's expected 482 transaction records
+- [ ] Malformed/missing data is validated or handled gracefully
+
+Commit:
+
+### TASK-3: KPI cards implementation
+Display the Total Sales and Total Orders KPIs at the top of the dashboard.
+- [ ] Total Sales and Total Orders are both displayed prominently
+- [ ] Currency is formatted as $X,XXX,XXX and large numbers use separators
+- [ ] Values match the PRD's expected output (~$116,500 / 482 orders)
+
+Commit:
+
+### TASK-4: Sales trend chart
+Add an interactive line chart showing sales over time.
+- [ ] Line chart plots sales by date (daily or monthly) with sales amount on the Y-axis
+- [ ] Tooltips show exact values on hover
+- [ ] Chart renders within 2 seconds of data load
+
+Commit:
+
+### TASK-5: Category and region breakdowns
+Add bar charts for sales by product category and by region.
+- [ ] Category bar chart shows all 5 categories, sorted highest to lowest, with tooltips
+- [ ] Region bar chart shows all 4 regions, sorted highest to lowest, with tooltips
+- [ ] Electronics appears as the top category, matching the PRD's expected output
+
+Commit:
+
+### TASK-6: Testing and refinement
+Verify the full dashboard against the PRD's acceptance criteria and clean up rough edges.
+- [ ] All 7 acceptance criteria in the PRD are checked off
+- [ ] Dashboard loads within 5 seconds with no errors or warnings
+- [ ] Layout and labels are polished enough for an executive presentation
+
+Commit:
+
+### TASK-7: Deployment to Streamlit Community Cloud
+Deploy the finished dashboard and confirm it's publicly reachable.
+- [ ] App is deployed to Streamlit Community Cloud
+- [ ] Public URL loads the dashboard correctly for a stakeholder with no local setup
+- [ ] Deployed version matches the tested local version (same data, same charts)
+
+Commit:
+
+## In Progress
+
+## Done
