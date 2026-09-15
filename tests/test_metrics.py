@@ -1,6 +1,6 @@
 import pandas as pd
 
-from metrics import total_sales, total_orders, sales_over_time
+from metrics import total_sales, total_orders, sales_over_time, sales_by_category, sales_by_region
 
 
 def _sample_df():
@@ -34,3 +34,23 @@ def test_sales_over_time_groups_by_month_and_sums():
     result = sales_over_time(df, freq="ME")
     assert list(result["total_amount"]) == [30.0, 5.0]
     assert len(result) == 2
+
+
+def test_sales_by_category_sums_and_sorts_descending():
+    df = pd.DataFrame({
+        "category": ["Audio", "Electronics", "Audio"],
+        "total_amount": [10.0, 50.0, 5.0],
+    })
+    result = sales_by_category(df)
+    assert list(result["category"]) == ["Electronics", "Audio"]
+    assert list(result["total_amount"]) == [50.0, 15.0]
+
+
+def test_sales_by_region_sums_and_sorts_descending():
+    df = pd.DataFrame({
+        "region": ["South", "North", "South"],
+        "total_amount": [10.0, 50.0, 5.0],
+    })
+    result = sales_by_region(df)
+    assert list(result["region"]) == ["North", "South"]
+    assert list(result["total_amount"]) == [50.0, 15.0]

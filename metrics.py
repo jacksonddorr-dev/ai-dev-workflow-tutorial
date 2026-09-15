@@ -25,3 +25,25 @@ def sales_over_time(df: pd.DataFrame, freq: str = "ME") -> pd.DataFrame:
         .rename(columns={"date": "period"})
     )
     return grouped.sort_values("period").reset_index(drop=True)
+
+
+def sales_by_category(df: pd.DataFrame) -> pd.DataFrame:
+    """Total sales per product category, sorted highest to lowest."""
+    return (
+        df.groupby("category")["total_amount"]
+        .sum()
+        .reset_index()
+        .sort_values("total_amount", ascending=False)
+        .reset_index(drop=True)
+    )
+
+
+def sales_by_region(df: pd.DataFrame) -> pd.DataFrame:
+    """Total sales per region, sorted highest to lowest."""
+    return (
+        df.groupby("region")["total_amount"]
+        .sum()
+        .reset_index()
+        .sort_values("total_amount", ascending=False)
+        .reset_index(drop=True)
+    )

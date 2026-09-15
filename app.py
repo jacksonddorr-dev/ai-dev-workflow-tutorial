@@ -2,7 +2,10 @@ import streamlit as st
 import plotly.express as px
 
 from data_loader import load_sales_data
-from metrics import total_sales, total_orders, sales_over_time
+from metrics import (
+    total_sales, total_orders, sales_over_time,
+    sales_by_category, sales_by_region,
+)
 from formatting import format_currency, format_number
 
 st.set_page_config(page_title="ShopSmart Sales Dashboard", layout="wide")
@@ -19,3 +22,16 @@ trend_df = sales_over_time(sales_df)
 fig_trend = px.line(trend_df, x="period", y="total_amount", markers=True)
 fig_trend.update_layout(xaxis_title="Month", yaxis_title="Sales ($)")
 st.plotly_chart(fig_trend, use_container_width=True)
+
+st.subheader("Sales by Category and Region")
+col3, col4 = st.columns(2)
+
+category_df = sales_by_category(sales_df)
+fig_category = px.bar(category_df, x="category", y="total_amount")
+fig_category.update_layout(xaxis_title="Category", yaxis_title="Sales ($)")
+col3.plotly_chart(fig_category, use_container_width=True)
+
+region_df = sales_by_region(sales_df)
+fig_region = px.bar(region_df, x="region", y="total_amount")
+fig_region.update_layout(xaxis_title="Region", yaxis_title="Sales ($)")
+col4.plotly_chart(fig_region, use_container_width=True)
