@@ -12,7 +12,11 @@ st.set_page_config(page_title="ShopSmart Sales Dashboard", layout="wide", page_i
 st.title("ShopSmart Sales Dashboard")
 st.caption("Sales performance overview — updated from the latest sales data export.")
 
-sales_df = load_sales_data("data/sales-data.csv")
+try:
+    sales_df = load_sales_data("data/sales-data.csv")
+except (FileNotFoundError, ValueError) as e:
+    st.error(f"Could not load sales data: {e}")
+    st.stop()
 
 col1, col2 = st.columns(2)
 col1.metric("Total Sales", format_currency(total_sales(sales_df)))
@@ -22,7 +26,7 @@ st.subheader("Sales Trend Over Time")
 trend_df = sales_over_time(sales_df)
 fig_trend = px.line(trend_df, x="period", y="total_amount", markers=True)
 fig_trend.update_layout(xaxis_title="Month", yaxis_title="Sales ($)")
-st.plotly_chart(fig_trend, use_container_width=True)
+st.plotly_chart(fig_trend, width="stretch")
 
 st.subheader("Sales by Category and Region")
 col3, col4 = st.columns(2)
@@ -30,9 +34,9 @@ col3, col4 = st.columns(2)
 category_df = sales_by_category(sales_df)
 fig_category = px.bar(category_df, x="category", y="total_amount")
 fig_category.update_layout(xaxis_title="Category", yaxis_title="Sales ($)")
-col3.plotly_chart(fig_category, use_container_width=True)
+col3.plotly_chart(fig_category, width="stretch")
 
 region_df = sales_by_region(sales_df)
 fig_region = px.bar(region_df, x="region", y="total_amount")
 fig_region.update_layout(xaxis_title="Region", yaxis_title="Sales ($)")
-col4.plotly_chart(fig_region, use_container_width=True)
+col4.plotly_chart(fig_region, width="stretch")

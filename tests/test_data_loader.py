@@ -21,6 +21,13 @@ def test_load_sales_data_raises_on_missing_file():
         load_sales_data("does/not/exist.csv")
 
 
+def test_load_sales_data_raises_on_genuinely_empty_file(tmp_path):
+    csv_path = tmp_path / "empty.csv"
+    csv_path.write_text("")
+    with pytest.raises(ValueError, match="empty"):
+        load_sales_data(str(csv_path))
+
+
 def test_load_sales_data_raises_on_missing_columns(tmp_path):
     csv_path = tmp_path / "bad.csv"
     csv_path.write_text("date,order_id\n2024-01-03,ORD-001\n")

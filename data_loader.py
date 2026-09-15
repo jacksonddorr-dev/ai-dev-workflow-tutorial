@@ -17,7 +17,9 @@ def load_sales_data(csv_path: str) -> pd.DataFrame:
     try:
         df = pd.read_csv(csv_path)
     except FileNotFoundError:
-        raise FileNotFoundError(f"Sales data file not found: {csv_path}")
+        raise FileNotFoundError(f"Sales data file not found: {csv_path}") from None
+    except pd.errors.EmptyDataError:
+        raise ValueError(f"Sales data file is empty: {csv_path}") from None
 
     if df.empty:
         raise ValueError(f"Sales data file is empty: {csv_path}")
