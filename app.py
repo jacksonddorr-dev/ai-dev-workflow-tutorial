@@ -8,8 +8,9 @@ from metrics import (
 )
 from formatting import format_currency, format_number
 
-st.set_page_config(page_title="ShopSmart Sales Dashboard", layout="wide")
+st.set_page_config(page_title="ShopSmart Sales Dashboard", layout="wide", page_icon="📊")
 st.title("ShopSmart Sales Dashboard")
+st.caption("Sales performance overview — updated from the latest sales data export.")
 
 sales_df = load_sales_data("data/sales-data.csv")
 
