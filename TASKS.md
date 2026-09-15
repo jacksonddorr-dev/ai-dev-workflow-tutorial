@@ -12,14 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-### TASK-1: Environment setup and project initialization
-Set up the Python project structure, dependencies, and repo layout needed to build the dashboard.
-- [ ] `requirements.txt` (or equivalent) lists Streamlit, Pandas, and Plotly
-- [ ] Project runs in a clean virtual environment with no missing dependencies
-- [ ] Basic `app.py` exists and launches an empty Streamlit page
-
-Commit:
-
 ### TASK-2: Data loading and basic structure
 Load `data/sales-data.csv` into a Pandas DataFrame and validate its structure.
 - [ ] CSV loads without errors and handles date, numeric, and categorical columns correctly
@@ -71,3 +63,15 @@ Commit:
 ## In Progress
 
 ## Done
+
+### TASK-1: Environment setup and project initialization
+Set up the Python project structure, dependencies, and repo layout needed to build the dashboard.
+- [x] `requirements.txt` (or equivalent) lists Streamlit, Pandas, and Plotly
+- [x] Project runs in a clean virtual environment with no missing dependencies
+- [x] Basic `app.py` exists and launches — note: no longer "an empty page"; by
+      deliberate choice `app.py` was left as the full dashboard built in
+      Tasks 2-6 rather than reverted to the minimal placeholder, since that
+      code is already reviewed and merged. Verified it still launches
+      cleanly (`streamlit run app.py`, HTTP 200, no errors).
+
+Commit: 3f5bf66
