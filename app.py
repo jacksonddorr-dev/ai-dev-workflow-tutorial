@@ -1,7 +1,8 @@
 import streamlit as st
+import plotly.express as px
 
 from data_loader import load_sales_data
-from metrics import total_sales, total_orders
+from metrics import total_sales, total_orders, sales_over_time
 from formatting import format_currency, format_number
 
 st.set_page_config(page_title="ShopSmart Sales Dashboard", layout="wide")
@@ -12,3 +13,9 @@ sales_df = load_sales_data("data/sales-data.csv")
 col1, col2 = st.columns(2)
 col1.metric("Total Sales", format_currency(total_sales(sales_df)))
 col2.metric("Total Orders", format_number(total_orders(sales_df)))
+
+st.subheader("Sales Trend Over Time")
+trend_df = sales_over_time(sales_df)
+fig_trend = px.line(trend_df, x="period", y="total_amount", markers=True)
+fig_trend.update_layout(xaxis_title="Month", yaxis_title="Sales ($)")
+st.plotly_chart(fig_trend, use_container_width=True)

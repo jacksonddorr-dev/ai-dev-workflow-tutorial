@@ -1,6 +1,6 @@
 import pandas as pd
 
-from metrics import total_sales, total_orders
+from metrics import total_sales, total_orders, sales_over_time
 
 
 def _sample_df():
@@ -24,3 +24,13 @@ def test_total_orders_does_not_double_count_repeated_order_id():
         "total_amount": [10.0, 5.0],
     })
     assert total_orders(df) == 1
+
+
+def test_sales_over_time_groups_by_month_and_sums():
+    df = pd.DataFrame({
+        "date": pd.to_datetime(["2024-01-05", "2024-01-20", "2024-02-01"]),
+        "total_amount": [10.0, 20.0, 5.0],
+    })
+    result = sales_over_time(df, freq="ME")
+    assert list(result["total_amount"]) == [30.0, 5.0]
+    assert len(result) == 2
