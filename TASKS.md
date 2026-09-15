@@ -12,14 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-### TASK-3: KPI cards implementation
-Display the Total Sales and Total Orders KPIs at the top of the dashboard.
-- [ ] Total Sales and Total Orders are both displayed prominently
-- [ ] Currency is formatted as $X,XXX,XXX and large numbers use separators
-- [ ] Values match the PRD's expected output (~$116,500 / 482 orders)
-
-Commit:
-
 ### TASK-4: Sales trend chart
 Add an interactive line chart showing sales over time.
 - [ ] Line chart plots sales by date (daily or monthly) with sales amount on the Y-axis
@@ -82,3 +74,13 @@ found a gap where a genuinely empty CSV raised an unfriendly pandas
 error instead of the loader's own ValueError, and fixed it in commit
 920c40c. Re-verified all 5 current tests pass against that fixed
 version, not just the original.
+
+### TASK-3: KPI cards implementation
+Display the Total Sales and Total Orders KPIs at the top of the dashboard.
+- [x] Total Sales and Total Orders are both displayed prominently
+- [x] Currency is formatted as $X,XXX,XXX and large numbers use separators
+- [x] Values match the PRD's expected output (~$116,500 / 482 orders)
+
+Commit: d914cff
+Notes: clean. Re-verified independently against the real CSV: Total
+Sales "$116,500", Total Orders "482" — exact match to the PRD.
