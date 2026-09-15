@@ -12,14 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-### TASK-5: Category and region breakdowns
-Add bar charts for sales by product category and by region.
-- [ ] Category bar chart shows all 5 categories, sorted highest to lowest, with tooltips
-- [ ] Region bar chart shows all 4 regions, sorted highest to lowest, with tooltips
-- [ ] Electronics appears as the top category, matching the PRD's expected output
-
-Commit:
-
 ### TASK-6: Testing and refinement
 Verify the full dashboard against the PRD's acceptance criteria and clean up rough edges.
 - [ ] All 7 acceptance criteria in the PRD are checked off
@@ -88,3 +80,14 @@ Notes: clean. Re-verified sales_over_time against the real CSV: 12
 monthly points, correctly summed and chronologically ordered. Tooltips
 come from Plotly's default hover behavior (nothing in the code
 suppresses it); render time is trivial at 482 rows.
+
+### TASK-5: Category and region breakdowns
+Add bar charts for sales by product category and by region.
+- [x] Category bar chart shows all 5 categories, sorted highest to lowest, with tooltips
+- [x] Region bar chart shows all 4 regions, sorted highest to lowest, with tooltips
+- [x] Electronics appears as the top category, matching the PRD's expected output
+
+Commit: 214cf12
+Notes: clean. Re-verified against the real CSV: 5 categories sorted
+descending with Electronics on top ($42,683.67), 4 regions (North, West,
+East, South) sorted descending — exact match to the PRD.
