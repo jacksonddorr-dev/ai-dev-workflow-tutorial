@@ -12,14 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-### TASK-6: Testing and refinement
-Verify the full dashboard against the PRD's acceptance criteria and clean up rough edges.
-- [ ] All 7 acceptance criteria in the PRD are checked off
-- [ ] Dashboard loads within 5 seconds with no errors or warnings
-- [ ] Layout and labels are polished enough for an executive presentation
-
-Commit:
-
 ### TASK-7: Deployment to Streamlit Community Cloud
 Deploy the finished dashboard and confirm it's publicly reachable.
 - [ ] App is deployed to Streamlit Community Cloud
@@ -91,3 +83,20 @@ Commit: 214cf12
 Notes: clean. Re-verified against the real CSV: 5 categories sorted
 descending with Electronics on top ($42,683.67), 4 regions (North, West,
 East, South) sorted descending — exact match to the PRD.
+
+### TASK-6: Testing and refinement
+Verify the full dashboard against the PRD's acceptance criteria and clean up rough edges.
+- [x] All 7 acceptance criteria in the PRD are checked off
+- [x] Dashboard loads within 5 seconds with no errors or warnings
+- [x] Layout and labels are polished enough for an executive presentation
+
+Commit: 920c40c
+Notes: This task's own acceptance criteria specifically require "no
+errors or warnings" — the original TASK-6 commit (216db94) still had a
+deprecated-Streamlit-kwarg warning on every chart render, only actually
+fixed later in 920c40c during the final branch review. Using 920c40c as
+the commit here since that's the one that makes this task's own criteria
+true, not just the one that first touched app.py for it. Re-verified:
+14/14 tests pass, live app loads in well under 5s with zero warnings in
+the server log, page icon/title/caption/wide-layout polish all present
+in app.py.
