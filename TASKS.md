@@ -68,10 +68,11 @@ Commit:
 Set up the Python project structure, dependencies, and repo layout needed to build the dashboard.
 - [x] `requirements.txt` (or equivalent) lists Streamlit, Pandas, and Plotly
 - [x] Project runs in a clean virtual environment with no missing dependencies
-- [x] Basic `app.py` exists and launches — note: no longer "an empty page"; by
-      deliberate choice `app.py` was left as the full dashboard built in
-      Tasks 2-6 rather than reverted to the minimal placeholder, since that
-      code is already reviewed and merged. Verified it still launches
-      cleanly (`streamlit run app.py`, HTTP 200, no errors).
+- [x] Basic `app.py` exists and launches without error
 
 Commit: 3f5bf66
+Notes: When re-verifying this task, the plan's original step would have
+reverted app.py to a minimal placeholder page — I flagged that it would
+have overwritten the full dashboard already built in Tasks 2-6, and asked
+before touching it. Jackson chose to skip that step and keep app.py as-is;
+verified it still launches cleanly instead of checking for an "empty" page.
