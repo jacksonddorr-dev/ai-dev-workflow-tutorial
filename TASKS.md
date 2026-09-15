@@ -12,14 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-### TASK-4: Sales trend chart
-Add an interactive line chart showing sales over time.
-- [ ] Line chart plots sales by date (daily or monthly) with sales amount on the Y-axis
-- [ ] Tooltips show exact values on hover
-- [ ] Chart renders within 2 seconds of data load
-
-Commit:
-
 ### TASK-5: Category and region breakdowns
 Add bar charts for sales by product category and by region.
 - [ ] Category bar chart shows all 5 categories, sorted highest to lowest, with tooltips
@@ -84,3 +76,15 @@ Display the Total Sales and Total Orders KPIs at the top of the dashboard.
 Commit: d914cff
 Notes: clean. Re-verified independently against the real CSV: Total
 Sales "$116,500", Total Orders "482" — exact match to the PRD.
+
+### TASK-4: Sales trend chart
+Add an interactive line chart showing sales over time.
+- [x] Line chart plots sales by date (daily or monthly) with sales amount on the Y-axis
+- [x] Tooltips show exact values on hover
+- [x] Chart renders within 2 seconds of data load
+
+Commit: ca26e16
+Notes: clean. Re-verified sales_over_time against the real CSV: 12
+monthly points, correctly summed and chronologically ordered. Tooltips
+come from Plotly's default hover behavior (nothing in the code
+suppresses it); render time is trivial at 482 rows.
