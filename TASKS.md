@@ -12,14 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-### TASK-2: Data loading and basic structure
-Load `data/sales-data.csv` into a Pandas DataFrame and validate its structure.
-- [ ] CSV loads without errors and handles date, numeric, and categorical columns correctly
-- [ ] Row count matches the PRD's expected 482 transaction records
-- [ ] Malformed/missing data is validated or handled gracefully
-
-Commit:
-
 ### TASK-3: KPI cards implementation
 Display the Total Sales and Total Orders KPIs at the top of the dashboard.
 - [ ] Total Sales and Total Orders are both displayed prominently
@@ -76,3 +68,17 @@ reverted app.py to a minimal placeholder page — I flagged that it would
 have overwritten the full dashboard already built in Tasks 2-6, and asked
 before touching it. Jackson chose to skip that step and keep app.py as-is;
 verified it still launches cleanly instead of checking for an "empty" page.
+
+### TASK-2: Data loading and basic structure
+Load `data/sales-data.csv` into a Pandas DataFrame and validate its structure.
+- [x] CSV loads without errors and handles date, numeric, and categorical columns correctly
+- [x] Row count matches the PRD's expected 482 transaction records
+- [x] Malformed/missing data is validated or handled gracefully
+
+Commit: a009d1f
+Notes: The "malformed/missing data" handling grew after this task's
+original commit — a later review round (during final branch review)
+found a gap where a genuinely empty CSV raised an unfriendly pandas
+error instead of the loader's own ValueError, and fixed it in commit
+920c40c. Re-verified all 5 current tests pass against that fixed
+version, not just the original.
