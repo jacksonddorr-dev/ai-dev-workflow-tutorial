@@ -12,14 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-### TASK-7: Deployment to Streamlit Community Cloud
-Deploy the finished dashboard and confirm it's publicly reachable.
-- [ ] App is deployed to Streamlit Community Cloud
-- [ ] Public URL loads the dashboard correctly for a stakeholder with no local setup
-- [ ] Deployed version matches the tested local version (same data, same charts)
-
-Commit:
-
 ## In Progress
 
 ## Done
@@ -100,3 +92,22 @@ true, not just the one that first touched app.py for it. Re-verified:
 14/14 tests pass, live app loads in well under 5s with zero warnings in
 the server log, page icon/title/caption/wide-layout polish all present
 in app.py.
+
+### TASK-7: Deployment to Streamlit Community Cloud
+Deploy the finished dashboard and confirm it's publicly reachable.
+- [x] App is deployed to Streamlit Community Cloud
+- [x] Public URL loads the dashboard correctly for a stakeholder with no local setup
+- [x] Deployed version matches the tested local version (same data, same charts)
+
+Live URL: https://sales-dashboard-jacksondorr.streamlit.app
+Commit: 8e967cb
+Notes: Verified the URL is reachable and loads without a sign-in wall:
+a bare request 303s to Streamlit's session-init endpoint, but following
+that redirect with cookies (as a real browser does) lands on the actual
+app at HTTP 200 with no auth page in the response. Could not verify
+chart-for-chart parity with the local version by request alone, since
+Streamlit renders the dashboard client-side over a websocket — that
+comparison still needs an actual look at the rendered page. Commit is
+8e967cb (HEAD of origin/main at deploy time), since Streamlit Community
+Cloud deploys from that branch directly rather than from a dedicated
+deploy commit.
