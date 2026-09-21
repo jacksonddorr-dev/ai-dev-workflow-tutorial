@@ -12,8 +12,6 @@ A milestone can only move to Done when:
 
 ## To Do
 
-## In Progress
-
 ### TASK-7: Deployment to Streamlit Community Cloud
 Deploy the finished dashboard and confirm it's publicly reachable.
 - [ ] App is deployed to Streamlit Community Cloud
@@ -21,6 +19,8 @@ Deploy the finished dashboard and confirm it's publicly reachable.
 - [ ] Deployed version matches the tested local version (same data, same charts)
 
 Commit:
+
+## In Progress
 
 ## Done
 
